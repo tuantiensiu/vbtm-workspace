@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: tienvgm/tm-workspace:v1.1.4
+    ports:
+      - "3333:3333"
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+      - REDIS_NODES=redis
+      # - REDIS_PASSWORD=5hz2jBhB5HcI59IXFKHv
+  redis:
+    image: redis:latest
+    # ports:
+    #   - "6379:6379"
